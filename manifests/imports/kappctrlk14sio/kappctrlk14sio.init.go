@@ -1,0 +1,242 @@
+package kappctrlk14sio
+
+import (
+	"reflect"
+
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+func init() {
+	_jsii_.RegisterClass(
+		"kappctrlk14sio.App",
+		reflect.TypeOf((*App)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addJsonPatch", GoMethod: "AddJsonPatch"},
+			_jsii_.MemberProperty{JsiiProperty: "apiGroup", GoGetter: "ApiGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "apiVersion", GoGetter: "ApiVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "chart", GoGetter: "Chart"},
+			_jsii_.MemberProperty{JsiiProperty: "kind", GoGetter: "Kind"},
+			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_App{}
+			_jsii_.InitJsiiProxy(&j.Type__cdk8sApiObject)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppProps",
+		reflect.TypeOf((*AppProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpec",
+		reflect.TypeOf((*AppSpec)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecCluster",
+		reflect.TypeOf((*AppSpecCluster)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecClusterKubeconfigSecretRef",
+		reflect.TypeOf((*AppSpecClusterKubeconfigSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecDeploy",
+		reflect.TypeOf((*AppSpecDeploy)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecDeployKapp",
+		reflect.TypeOf((*AppSpecDeployKapp)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecDeployKappDelete",
+		reflect.TypeOf((*AppSpecDeployKappDelete)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecDeployKappInspect",
+		reflect.TypeOf((*AppSpecDeployKappInspect)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetch",
+		reflect.TypeOf((*AppSpecFetch)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchGit",
+		reflect.TypeOf((*AppSpecFetchGit)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchGitRefSelection",
+		reflect.TypeOf((*AppSpecFetchGitRefSelection)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchGitRefSelectionSemver",
+		reflect.TypeOf((*AppSpecFetchGitRefSelectionSemver)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchGitRefSelectionSemverPrereleases",
+		reflect.TypeOf((*AppSpecFetchGitRefSelectionSemverPrereleases)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchGitSecretRef",
+		reflect.TypeOf((*AppSpecFetchGitSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchHelmChart",
+		reflect.TypeOf((*AppSpecFetchHelmChart)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchHelmChartRepository",
+		reflect.TypeOf((*AppSpecFetchHelmChartRepository)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchHelmChartRepositorySecretRef",
+		reflect.TypeOf((*AppSpecFetchHelmChartRepositorySecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchHttp",
+		reflect.TypeOf((*AppSpecFetchHttp)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchHttpSecretRef",
+		reflect.TypeOf((*AppSpecFetchHttpSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImage",
+		reflect.TypeOf((*AppSpecFetchImage)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImageSecretRef",
+		reflect.TypeOf((*AppSpecFetchImageSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImageTagSelection",
+		reflect.TypeOf((*AppSpecFetchImageTagSelection)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImageTagSelectionSemver",
+		reflect.TypeOf((*AppSpecFetchImageTagSelectionSemver)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImageTagSelectionSemverPrereleases",
+		reflect.TypeOf((*AppSpecFetchImageTagSelectionSemverPrereleases)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImgpkgBundle",
+		reflect.TypeOf((*AppSpecFetchImgpkgBundle)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImgpkgBundleSecretRef",
+		reflect.TypeOf((*AppSpecFetchImgpkgBundleSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImgpkgBundleTagSelection",
+		reflect.TypeOf((*AppSpecFetchImgpkgBundleTagSelection)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImgpkgBundleTagSelectionSemver",
+		reflect.TypeOf((*AppSpecFetchImgpkgBundleTagSelectionSemver)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchImgpkgBundleTagSelectionSemverPrereleases",
+		reflect.TypeOf((*AppSpecFetchImgpkgBundleTagSelectionSemverPrereleases)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchInline",
+		reflect.TypeOf((*AppSpecFetchInline)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchInlinePathsFrom",
+		reflect.TypeOf((*AppSpecFetchInlinePathsFrom)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchInlinePathsFromConfigMapRef",
+		reflect.TypeOf((*AppSpecFetchInlinePathsFromConfigMapRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecFetchInlinePathsFromSecretRef",
+		reflect.TypeOf((*AppSpecFetchInlinePathsFromSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplate",
+		reflect.TypeOf((*AppSpecTemplate)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateHelmTemplate",
+		reflect.TypeOf((*AppSpecTemplateHelmTemplate)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateHelmTemplateValuesFrom",
+		reflect.TypeOf((*AppSpecTemplateHelmTemplateValuesFrom)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateHelmTemplateValuesFromConfigMapRef",
+		reflect.TypeOf((*AppSpecTemplateHelmTemplateValuesFromConfigMapRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateHelmTemplateValuesFromSecretRef",
+		reflect.TypeOf((*AppSpecTemplateHelmTemplateValuesFromSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateKbld",
+		reflect.TypeOf((*AppSpecTemplateKbld)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateSops",
+		reflect.TypeOf((*AppSpecTemplateSops)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateSopsAge",
+		reflect.TypeOf((*AppSpecTemplateSopsAge)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateSopsAgePrivateKeysSecretRef",
+		reflect.TypeOf((*AppSpecTemplateSopsAgePrivateKeysSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateSopsPgp",
+		reflect.TypeOf((*AppSpecTemplateSopsPgp)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateSopsPgpPrivateKeysSecretRef",
+		reflect.TypeOf((*AppSpecTemplateSopsPgpPrivateKeysSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYtt",
+		reflect.TypeOf((*AppSpecTemplateYtt)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttInline",
+		reflect.TypeOf((*AppSpecTemplateYttInline)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttInlinePathsFrom",
+		reflect.TypeOf((*AppSpecTemplateYttInlinePathsFrom)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttInlinePathsFromConfigMapRef",
+		reflect.TypeOf((*AppSpecTemplateYttInlinePathsFromConfigMapRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttInlinePathsFromSecretRef",
+		reflect.TypeOf((*AppSpecTemplateYttInlinePathsFromSecretRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttValuesFrom",
+		reflect.TypeOf((*AppSpecTemplateYttValuesFrom)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttValuesFromConfigMapRef",
+		reflect.TypeOf((*AppSpecTemplateYttValuesFromConfigMapRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"kappctrlk14sio.AppSpecTemplateYttValuesFromSecretRef",
+		reflect.TypeOf((*AppSpecTemplateYttValuesFromSecretRef)(nil)).Elem(),
+	)
+}

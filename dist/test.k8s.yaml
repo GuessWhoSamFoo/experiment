@@ -1,0 +1,99 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: service-account-with-role-to-create-taskruns
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: testing-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: testing-role
+subjects:
+  - kind: ServiceAccount
+    name: service-account-with-role-to-create-taskruns
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: testing-role
+rules:
+  - apiGroups:
+      - tekton.dev
+    resources:
+      - tasks
+      - taskruns
+    verbs:
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+      - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: carto-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: carto-role
+subjects:
+  - kind: ServiceAccount
+    name: service-account-with-role-to-create-taskruns
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: carto-role
+rules:
+  - apiGroups:
+      - carto.run
+    resources:
+      - runnables
+    verbs:
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+      - get
+---
+apiVersion: carto.run/v1alpha1
+kind: ClusterRunTemplate
+metadata:
+  name: tekton-taskrun
+spec:
+  outputs:
+    revision: spec.params[?(@.name=="blob-revision")].value
+    url: spec.params[?(@.name=="blob-url")].value
+  template:
+    apiVersion: tekton.dev/v1beta1
+    kind: TaskRun
+    metadata:
+      generateName: test-
+    spec:
+      params:
+        - name: blob-url
+          value: $(runnable.spec.inputs.blob-url)$
+        - name: blob-revision
+          value: $(runnable.spec.inputs.blob-revision)$
+      taskRef:
+        name: test
+---
+apiVersion: carto.run/v1alpha1
+kind: Runnable
+metadata:
+  name: test
+spec:
+  inputs:
+    blob-revision: 7047568a1eaa2ffe3dc2c5c1eae6079d3de73c90
+    blob-url: https://github.com/kontinue/hello-world
+  runTemplateRef:
+    name: tekton-taskrun
+  serviceAccountName: service-account-with-role-to-create-taskruns

@@ -1,0 +1,4 @@
+language: go
+app: go run ./cmd/main.go
+import:
+  - k8s@1.21.1
