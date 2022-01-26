@@ -24,11 +24,6 @@ Install Cartographer:
 kubectl apply -f https://github.com/vmware-tanzu/cartographer/releases/latest/download/cartographer.yaml
 ```
 
-Hack because unclear how JSON patching works:
-```
-kubectl apply -f https://raw.githubusercontent.com/vmware-tanzu/cartographer/main/examples/runnable-tekton/00-setup/tekton-task.yml
-```
-
 ### Usage
 
 Only an installation of Go is needed. `go run main.go -h` shows the inputs for this example.

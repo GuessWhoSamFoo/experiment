@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"fmt"
 	"github.com/GuessWhoSamFoo/experiment/manifests/imports/cartorun"
 	"github.com/GuessWhoSamFoo/experiment/manifests/imports/k8s"
 	"github.com/aws/constructs-go/constructs/v3"
@@ -106,7 +107,7 @@ func NewExample(scope constructs.Construct, id string, props *Example) cdk8s.Cha
 		},
 	})
 
-	// TODO: Fix patching
+	// TODO: Fix patching for typed objects. Using APIObject allows patching for non-specified fields
 	//t := tektondev.NewTask(chart, jsii.String("task"), &tektondev.TaskProps{
 	//	Metadata: &cdk8s.ApiObjectMetadata{
 	//		Labels: &map[string]*string{
@@ -116,28 +117,38 @@ func NewExample(scope constructs.Construct, id string, props *Example) cdk8s.Cha
 	//	},
 	//})
 	//t.AddJsonPatch(cdk8s.JsonPatch_Add(jsii.String("/spec"), "123"))
+	t := cdk8s.NewApiObject(chart, jsii.String("task"), &cdk8s.ApiObjectProps{
+		ApiVersion: jsii.String("tekton.dev/v1alpha1"),
+		Kind:       jsii.String("Task"),
+		Metadata: &cdk8s.ApiObjectMetadata{
+			Labels: &map[string]*string{
+				"apps.tanzu.vmware.com/task": jsii.String("test"),
+			},
+			Name: jsii.String("test"),
+		},
+	})
 
-	//t.AddJsonPatch(cdk8s.JsonPatch_Add(jsii.String("path"), map[string]interface{}{
-	//	"params": []map[string]interface{}{
-	//		{
-	//			"name": "blob-url",
-	//		},
-	//		{
-	//			"name": "blob-revision",
-	//		},
-	//	},
-	//	"steps": []map[string]interface{}{
-	//		{
-	//			"name":  "test",
-	//			"image": "golang",
-	//			"command": []string{
-	//				"bash",
-	//				"-cxe",
-	//				fmt.Sprintf("set -o pipefail\n          cd `mktemp -d`\n          git clone $(params.blob-url) && cd \"`basename $(params.blob-url) .git`\"\n          git checkout $(params.blob-revision)\n          go test -v ./..."),
-	//			},
-	//		},
-	//	},
-	//}))
+	t.AddJsonPatch(cdk8s.JsonPatch_Add(jsii.String("/spec"), map[string]interface{}{
+		"params": []map[string]interface{}{
+			{
+				"name": "blob-url",
+			},
+			{
+				"name": "blob-revision",
+			},
+		},
+		"steps": []map[string]interface{}{
+			{
+				"name":  "test",
+				"image": "golang",
+				"command": []string{
+					"bash",
+					"-cxe",
+					fmt.Sprintf("set -o pipefail\ncd `mktemp -d`\ngit clone $(params.blob-url) && cd \"`basename $(params.blob-url) .git`\"\ngit checkout $(params.blob-revision)\ngo test -v ./..."),
+				},
+			},
+		},
+	}))
 
 	cartorun.NewClusterRunTemplate(chart, jsii.String("cluster-run"), &cartorun.ClusterRunTemplateProps{
 		Metadata: &cdk8s.ApiObjectMetadata{
